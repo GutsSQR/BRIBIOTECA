@@ -1,4 +1,4 @@
-﻿class Program
+class Program
 {
     static Biblioteca biblioteca = new Biblioteca();
 
@@ -46,12 +46,12 @@
         string titulo = Console.ReadLine();
         Console.Write("Autor: ");
         string autor = Console.ReadLine();
-        Console.Write("ISBN: ");
-        string isbn = Console.ReadLine();
+        Console.Write("Nome: ");
+        string Nome = Console.ReadLine();
         Console.Write("Quantidade: ");
         int quantidade = int.Parse(Console.ReadLine());
 
-        var livro = new Livro(titulo, autor, isbn, quantidade);
+        var livro = new Livro(titulo, autor, Nome, quantidade);
         biblioteca.CadastrarLivro(livro);
         Console.WriteLine("Livro cadastrado!");
     }
@@ -70,21 +70,21 @@
 
     static void RegistrarEmprestimo()
     {
-        Console.Write("ISBN do livro: ");
-        string isbn = Console.ReadLine();
+        Console.Write("Nome do livro: ");
+        string Nome = Console.ReadLine();
         Console.Write("Matrícula do usuário: ");
         string matricula = Console.ReadLine();
 
-        biblioteca.RegistrarEmprestimo(isbn, matricula);
+        biblioteca.RegistrarEmprestimo(Nome, matricula);
     }
 
     static void RegistrarDevolucao()
     {
-        Console.Write("ISBN do livro: ");
-        string isbn = Console.ReadLine();
+        Console.Write("Nome do livro: ");
+        string Nome = Console.ReadLine();
         Console.Write("Matrícula do usuário: ");
         string matricula = Console.ReadLine();
 
-        biblioteca.RegistrarDevolucao(isbn, matricula);
+        biblioteca.RegistrarDevolucao(Nome, matricula);
     }
 }
