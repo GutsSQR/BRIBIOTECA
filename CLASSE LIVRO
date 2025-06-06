@@ -1,12 +1,18 @@
 public class Livro {
-    public string Titulo (get; set;);
-    public string Autor (get; set;);
-    public string Leitor (get; set;);
+    public string Titulo {get; set;}
+    public string Autor {get; set;}
+    public string Leitor {get; set;}
 
-public Livro (string Titulo, string Autor, string Leitor);
+ public Livro(string titulo, string autor, string leitor)
     {
         Titulo = titulo;
         Autor = autor;
         Leitor = leitor;
+    }
+    public void ExibirInformacoes()
+    {
+        Console.WriteLine("Título: " + Titulo);
+        Console.WriteLine("Autor: " + Autor);
+        Console.WriteLine("Leitor: " + Leitor);
     }
 }
