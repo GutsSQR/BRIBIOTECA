@@ -1,15 +1,20 @@
-using System.Security.Cryptography.X509Certificates;
-using Microsoft.VisualBasic;
+using System;
 
-public class Biblioteca {
-    public string Livro;
-    public string Leitor;
-    public string DataRetirada;
-
-public Biblioteca(string Livro, string Leitor, string DataRetirada);
+public class Biblioteca
+{
+    public void RegistrarEmprestimo(Livro livro, Leitor leitor)
     {
-        Livro = Livro;
-        Leitor = leitor;
-        DataRetirada = DataRetirada;
+        Console.WriteLine($"O leitor {leitor.Nome} retirou o livro \"{livro.Titulo}\" do autor {livro.Autor}.");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Livro livro = new Livro("O Senhor dos Anéis", "J.R.R. Tolkien");
+        Leitor leitor = new Leitor("Carlos Eduardo");
+        Biblioteca biblioteca = new Biblioteca();
+        biblioteca.RegistrarEmprestimo(livro, leitor);
     }
 }
