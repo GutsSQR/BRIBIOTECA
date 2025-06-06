@@ -1,1 +1,23 @@
+using System;
 
+public class Leitor
+{
+    public string NomeDoLeitor { get; set; }
+    public Leitor(string nomeDoLeitor)
+    {
+        NomeDoLeitor = nomeDoLeitor;
+    }
+    public void ExibirInformacoes()
+    {
+        Console.WriteLine("O leitor " + NomeDoLeitor + " retirou o livro da biblioteca.");
+    }
+}
+
+class Program
+{
+    static void main(string[] args)
+    {
+        Leitor leitor = new Leitor("Gustavo");
+        leitor.ExibirInformacoes("Nárnia");
+    }
+}
