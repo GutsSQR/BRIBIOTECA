@@ -1,1 +1,15 @@
+using System.Security.Cryptography.X509Certificates;
+using Microsoft.VisualBasic;
 
+public class Biblioteca {
+    public string Livro;
+    public string Leitor;
+    public string DataRetirada;
+
+public Biblioteca(string Livro, string Leitor, string DataRetirada);
+    {
+        Livro = Livro;
+        Leitor = leitor;
+        DataRetirada = DataRetirada;
+    }
+}
