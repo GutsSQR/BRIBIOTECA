@@ -1,1 +1,27 @@
+class Emprestimo
+    {
+        public Livro LivroEmprestado { get; set; }
+        public Usuario Usuario { get; set; }
+        public PeriodoEmprestimo Periodo { get; set; }
 
+        public bool Ativo => !Periodo.DataDevolucao.HasValue;
+
+        public Emprestimo(Livro livro, Usuario usuario)
+        {
+            LivroEmprestado = livro;
+            Usuario = usuario;
+            Periodo = new PeriodoEmprestimo(DateTime.Now);
+        }
+
+        public void Devolver()
+        {
+            Periodo.RegistrarDevolucao();
+            LivroEmprestado.Quantidade++;
+        }
+
+        public override string ToString()
+        {
+            string status = Ativo ? "EM ANDAMENTO" : $"DEVOLVIDO em {Periodo.DataDevolucao.Value.ToShortDateString()}";
+            return $"{LivroEmprestado.Titulo} -> {Usuario.Nome} em {Periodo.DataEmprestimo.ToShortDateString()} | {status}";
+        }
+    }
