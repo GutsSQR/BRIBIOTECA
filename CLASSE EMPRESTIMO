@@ -1,15 +1,15 @@
 class Emprestimo
     {
-        public Livro LivroEmprestado { get; set; }
-        public Usuario Usuario { get; set; }
+        public Livro Emprestimo { get; set; }
+        public Leitor Leitor { get; set; }
         public PeriodoEmprestimo Periodo { get; set; }
 
         public bool Ativo => !Periodo.DataDevolucao.HasValue;
 
-        public Emprestimo(Livro livro, Usuario usuario)
+        public Emprestimo(Livro livro, Leitor leitor)
         {
             LivroEmprestado = livro;
-            Usuario = usuario;
+            Leitor = leitor;
             Periodo = new PeriodoEmprestimo(DateTime.Now);
         }
 
@@ -22,6 +22,6 @@ class Emprestimo
         public override string ToString()
         {
             string status = Ativo ? "EM ANDAMENTO" : $"DEVOLVIDO em {Periodo.DataDevolucao.Value.ToShortDateString()}";
-            return $"{LivroEmprestado.Titulo} -> {Usuario.Nome} em {Periodo.DataEmprestimo.ToShortDateString()} | {status}";
+            return $"{LivroEmprestado.Titulo} -> {Leitor.Nome} em {Periodo.DataEmprestimo.ToShortDateString()} | {status}";
         }
     }
