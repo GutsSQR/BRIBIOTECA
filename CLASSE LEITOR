@@ -1,23 +1,14 @@
-using System;
-
-public class Leitor
+public class Leitor : Pessoa
 {
-    public string NomeDoLeitor { get; set; }
-    public Leitor(string nomeDoLeitor)
-    {
-        NomeDoLeitor = nomeDoLeitor;
-    }
-    public void ExibirInformacoes()
-    {
-        Console.WriteLine("O leitor " + NomeDoLeitor + " retirou o livro da biblioteca.");
-    }
-}
+    public string Matricula { get; set; }
 
-class Program
-{
-    static void main(string[] args)
+    public Leitor(string nome, string matricula) : base(nome)
     {
-        Leitor leitor = new Leitor("Gustavo");
-        leitor.ExibirInformacoes("Nárnia");
+        Matricula = matricula;
+    }
+
+    public override string ToString()
+    {
+        return $"{Nome} (Matrícula: {Matricula})";
     }
 }
