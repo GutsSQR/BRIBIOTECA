@@ -1,18 +1,18 @@
-public class Livro {
-    public string Titulo {get; set;}
-    public string Autor {get; set;}
-    public string Leitor {get; set;}
+public class Livro
+{
+    public string Titulo { get; set; }
+    public string Autor { get; set; }
+    public int Quantidade { get; set; }
 
- public Livro(string titulo, string autor, string leitor)
+    public Livro(string titulo, string autor, int quantidade = 1)
     {
         Titulo = titulo;
         Autor = autor;
-        Leitor = leitor;
+        Quantidade = quantidade;
     }
-    public void ExibirInformacoes()
+
+    public override string ToString()
     {
-        Console.WriteLine("Título: " + Titulo);
-        Console.WriteLine("Autor: " + Autor);
-        Console.WriteLine("Leitor: " + Leitor);
+        return $"{Titulo} por {Autor} - Quantidade: {Quantidade}";
     }
 }
