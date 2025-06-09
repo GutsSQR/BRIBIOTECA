@@ -1,20 +1,30 @@
 using System;
+using System.Collections.Generic;
 
 public class Biblioteca
 {
+    public List<Emprestimo> Emprestimos { get; set; } = new List<Emprestimo>();
+
     public void RegistrarEmprestimo(Livro livro, Leitor leitor)
     {
-        Console.WriteLine($"O leitor {leitor.Nome} retirou o livro \"{livro.Titulo}\" do autor {livro.Autor}.");
-    }
-}
+        if (livro.Quantidade <= 0)
+        {
+            Console.WriteLine($"Livro \"{livro.Titulo}\" está indisponível.");
+            return;
+        }
 
-class Program
-{
-    static void Main(string[] args)
+        livro.Quantidade--;
+        var emprestimo = new Emprestimo(livro, leitor);
+        Emprestimos.Add(emprestimo);
+        Console.WriteLine($"[OK] {emprestimo}");
+    }
+
+    public void ListarEmprestimos()
     {
-        Livro livro = new Livro("O Senhor dos Anéis", "J.R.R. Tolkien");
-        Leitor leitor = new Leitor("Carlos Eduardo");
-        Biblioteca biblioteca = new Biblioteca();
-        biblioteca.RegistrarEmprestimo(livro, leitor);
+        Console.WriteLine("\n--- Empréstimos Registrados ---");
+        foreach (var emp in Emprestimos)
+        {
+            Console.WriteLine(emp);
+        }
     }
 }
