@@ -14,7 +14,7 @@ public class Biblioteca
         }
 
         livro.Quantidade--;
-        var emprestimo = new Emprestimo(livro, leitor);
+        var emprestimo = new Emprestimo (livro, leitor);
         Emprestimos.Add(emprestimo);
         Console.WriteLine($"[OK] {emprestimo}");
     }
