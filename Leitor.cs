@@ -1,3 +1,4 @@
+using System;
 public class Leitor : Pessoa
 {
     public string Matricula { get; set; }
