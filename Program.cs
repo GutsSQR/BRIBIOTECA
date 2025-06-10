@@ -7,8 +7,8 @@ class Program
         var livro1 = new Livro("NARNIA", "Clive", 2);
         var livro2 = new Livro("Hobbit", "Tolkien", 1);
 
-        var leitor1 = new Leitor("Maria", "A123");
-        var leitor2 = new Leitor("João", "B456");
+        var leitor1 = new Leitor("Bolsonaro L", "A123");
+        var leitor2 = new Leitor("Mago da peda", "B456");
 
         var biblioteca = new Biblioteca();
 
